@@ -73,32 +73,16 @@ subprojects {
                 publications 'mavenJava'
             }
         }
-        resolve {
-        repository {
-            repoKey = 'maven'
-            username = System.getenv('ARTIFACTORY_USER') ?: artifactoryUser
-            password = System.getenv('ARTIFACTORY_KEY') ?: artifactoryKey
-        }
-      }
-    }
+       resolve {
+         repository {
+             repoKey = 'maven'
+             username = System.getenv('ARTIFACTORY_USER') ?: artifactoryUser
+             password = System.getenv('ARTIFACTORY_KEY') ?: artifactoryKey
+         }
+       }
+     }
   }
-
-/*
-  artifactory {
-    // on dev machines we should set these in ~/.gradle/gradle.properties
-    // on CI machines we should provide these through env
-   
-    resolve {
-        repository {
-            repoKey = 'maven'
-            username = System.getenv('ARTIFACTORY_USER') ?: artifactoryUser
-            password = System.getenv('ARTIFACTORY_KEY') ?: artifactoryKey
-        }
-    }
-    }
-*/
-
-
+    
   versions.scalaDist = scalaDist
   versions.scalaStyle = "1.0.0"
   versions.junit = "4.11"
